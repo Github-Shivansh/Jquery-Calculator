@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<style>
+body {
+	background-color: skyblue;
+	border: 10px solid black;
+}
+
+h1{
+	background: lightblue;
+	font-size: 50px;
+	text-decoration-color: :yellow;
+}
+
+
+input {
+	font-size:2em;
+	width:80;
+	height:85;
+}
+.numericbutton,.operator,.clear,.equal {
+	font-size: 30px;
+	font-color:black;
+	border: 4px solid black;
+	width:100px;
+	height:85px;
+	background-color: green;
+
+}
+div {
+	border: 3px solid purple;
+	font-size: 25px;
+}
+
+
+
+</style>
+
+
+<head>
+	<title> CSS LEARNING </title>
+</head>
+<body>
+<h1 align="center">CALCULATOR</h1>
+<div align="center"><input class="display" type="text" name="display" placeholder=" Press buttons :)"><div>
+<table id="firstcol" align="center">
+    <hr>
+	<tr align="center">
+		<td id="1"><input type="button" class="numericbutton" data-role="number" value="1"></td>
+		<td id="2"><input type="button" class="numericbutton" data-role="number" value="2"></td>
+		<td id="3"><input type="button" class="numericbutton" data-role="number" value="3"></td>
+		<td id="add"><input type="button" class="operator" data-role="operator" value="+"></td>
+    </tr>
+
+    <tr align="center">
+		<td id="4"><input type="button" class="numericbutton" data-role="number" value="4"></td>
+		<td id="5"><input type="button" class="numericbutton" data-role="number" value="5"></td>
+		<td id="6"><input type="button" class="numericbutton" data-role="number" value="6"></td>
+		<td id="minus"><input type="button" class="operator" data-role="operator" value="-"></td>
+    </tr>
+
+    <tr align="center">
+		<td id="7"><input type="button" class="numericbutton" data-role="number" value="7"></td>
+		<td id="8"><input type="button" class="numericbutton" data-role="number" value="8"></td>
+		<td id="9"><input type="button" class="numericbutton" data-role="number" value="9"></td>
+		<td id="multiply"><input type="button" class="operator" data-role="operator" value="*"></td>
+	</tr>
+
+	<tr align="center">		
+		<td id="divide"><input type="button" class="operator" data-role="operator" value="/"></td>
+		<td ><input type="button" class="equal" data-role="operator" value="="></td>
+		<td id="0"><input type="button" class="numericbutton" data-role="number" value="0"></td>
+		<td ><input type="button" class="clear" data-role="number" value="C"></td>
+	</tr>		
+</table>
+<h1 id="animation">Hello</h1>
+
+
+<script src="jquery.js"></script>
+
+
+
+<script>
+
+
+$(".numericbutton").on('click',function(){
+	$(this).fadeOut("fast");
+	$(this).fadeIn("fast");
+	$(".display").val($(".display").val()+$(this).val());
+});
+
+$(".operator").on('click',function(){
+	$(".display").val($(".display").val()+$(this).val());
+});
+
+
+$(".clear").on('click',function(){
+	$(".display").val('');
+});
+
+$(".equal").on("click",function(){
+	$(".display").fadeOut("2000",function(){
+		$(".display").fadeIn("1000");
+		var expression = $(".display").val();
+	    $(".display").val(eval(expression));
+    });
+});
+
+$(document).ready(function(){
+	$("#animation").fadeOut("2000",function(){
+		$(this).fadeIn("2000");
+        $(this).text("Shivansh");
+	});
+
+});
+
+
+</script>
+</body>
+</html>
